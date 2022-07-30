@@ -2,10 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import {Rating, RatingValueType} from "./components/Raiting/Rating";
 import Accordion from "./components/Accordion/Accordion";
-import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRaiting/UncontrolledRating";
 import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
-import OnOff from "./components/OnOff/OnOff";
 
 function App() {
     console.log("App is rendering");
@@ -17,9 +15,8 @@ function App() {
         <div className="App">
             <Rating value={ratingValue}
                     onClick={setRatingValue}/>
-            <UncontrolledRating/>
+            <UncontrolledRating onChange={(x)=>x}/>
             <Accordion title={"Menu"} collapsed={accordionCollapsed} onChange={setAccordionCollapsed}/>
-            {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
             <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
         </div>
     );

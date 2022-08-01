@@ -1,0 +1,20 @@
+.select .main{
+    display: inline-block;
+    border: black 1px solid;
+    min-width: 40px;
+    min-height: 20px;
+    align-items: center;
+    border-radius: 2px;
+}
+
+
+.items {
+    position: absolute;
+    border: black 1px solid;
+    padding: 10px;
+}
+
+.item{
+color: white;
+background-color: blue;
+}

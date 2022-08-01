@@ -4,6 +4,7 @@ import {Rating, RatingValueType} from "./components/Raiting/Rating";
 import Accordion from "./components/Accordion/Accordion";
 import {UncontrolledRating} from "./components/UncontrolledRaiting/UncontrolledRating";
 import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import Select from "./components/Select/Select";
 
 function App() {
     console.log("App is rendering");
@@ -15,9 +16,15 @@ function App() {
         <div className="App">
             <Rating value={ratingValue}
                     onClick={setRatingValue}/>
-            <UncontrolledRating onChange={(x)=>x}/>
-            <Accordion title={"Menu"} collapsed={accordionCollapsed} onChange={setAccordionCollapsed}/>
+            <UncontrolledRating onChange={(x) => x}/>
             <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            <Select
+                value="1"
+                items={[
+                {value: "1", title: "Minsk"},
+                {value: "2", title: "Moskow"},
+                {value: "3", title: "Kiev"},
+            ]}/>
         </div>
     );
 }
@@ -26,10 +33,10 @@ type PageTitlePropsType = {
     title: string;
 }
 
-function PageTitle(props: PageTitlePropsType){
+function PageTitle(props: PageTitlePropsType) {
     console.log("AppTitle is rendering");
-    return(
-    <h1>{props.title}</h1>
+    return (
+        <h1>{props.title}</h1>
     );
 }
 

@@ -30,3 +30,18 @@ export const SimpleExampleConcerningUseEffect = () => {
         <button onClick={() => setCounter(state => state + 1)}>Counter+</button>
     </div>
 }
+export const SetTimeoutExampleConcerningUseEffect = () => {
+    const [counter, setCounter] = useState<number>(() => {
+        return 1
+    })
+    console.log("SetTimeoutExample")
+
+    useEffect(() => {
+        setInterval(()=> {
+            setCounter(state => state + 1)},1000)
+    }, [])
+
+    return <div>
+        Hello, Counter:{counter} Fake:{fake}
+    </div>
+}

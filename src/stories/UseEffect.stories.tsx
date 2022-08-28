@@ -5,7 +5,7 @@ export default {
 }
 
 export const SimpleExampleConcerningUseEffect = () => {
-    const[fake, setFake] = useState<number>(() =>{
+    const [fake, setFake] = useState<number>(() => {
         return 1
     })
     const [counter, setCounter] = useState<number>(() => {
@@ -37,8 +37,9 @@ export const SetTimeoutExampleConcerningUseEffect = () => {
     console.log("SetTimeoutExample")
 
     useEffect(() => {
-        setInterval(()=> {
-            setCounter(state => state + 1)},1000)
+        setInterval(() => {
+            setCounter(state => state + 1)
+        }, 1000)
     }, [])
 
     return <div>
@@ -48,23 +49,24 @@ export const SetTimeoutExampleConcerningUseEffect = () => {
 export const ClockExampleConcerningUseEffect = () => {
     const [newDate, setDate] = useState(() => {
         let date = new Date(),
-            hours = (date.getHours() < 10 ? "0" + date.getHours(): date.getHours()),
-            minutes = (date.getMinutes() < 10 ? "0" + date.getMinutes(): date.getMinutes()),
-            seconds = (date.getSeconds() < 10 ? "0" + date.getSeconds(): date.getSeconds())
+            hours = (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()),
+            minutes = (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()),
+            seconds = (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds())
         return {hours, minutes, seconds}
     })
     console.log("ClockExample")
 
     useEffect(() => {
-        setInterval(() => {setDate(() =>{
-            let date = new Date(),
-            hours = (date.getHours() < 10 ? "0" + date.getHours(): date.getHours()),
-            minutes = (date.getMinutes() < 10 ? "0" + date.getMinutes(): date.getMinutes()),
-            seconds = (date.getSeconds() < 10 ? "0" + date.getSeconds(): date.getSeconds())
-            return {hours, minutes, seconds}
-        })
+        setInterval(() => {
+            setDate(() => {
+                let date = new Date(),
+                    hours = (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()),
+                    minutes = (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()),
+                    seconds = (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds())
+                return {hours, minutes, seconds}
+            })
 
-        },1000)
+        }, 1000)
     }, [])
 
     return <div>

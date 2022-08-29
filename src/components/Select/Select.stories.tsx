@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import Select from "./Select";
 
 export default {
-    title: "Select",
+    title: "Components/Select",
     component: Select
 }
 

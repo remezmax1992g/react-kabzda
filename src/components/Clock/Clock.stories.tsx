@@ -1,7 +1,7 @@
 import Clock from "./Clock";
 
 export default{
-    title: "Clock",
+    title: "Components/Clock",
     component: Clock
 }
 

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 
 export default {
-    title: "UseEffect"
+    title: "Hooks demo/UseEffect"
 }
 
 export const SimpleExampleConcerningUseEffect = () => {

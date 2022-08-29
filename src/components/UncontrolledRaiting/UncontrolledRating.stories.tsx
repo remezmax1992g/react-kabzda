@@ -1,10 +1,10 @@
-import React, {useState} from "react"
+import React from "react"
 import {action} from "@storybook/addon-actions"
 import {UncontrolledRating} from "./UncontrolledRating";
 
 
 export default {
-    title: "UncontrolledRating",
+    title: "Components/UncontrolledRating",
     component: UncontrolledRating,
 }
 

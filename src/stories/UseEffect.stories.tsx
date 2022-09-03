@@ -30,7 +30,7 @@ export const SimpleExampleConcerningUseEffect = () => {
         <button onClick={() => setCounter(state => state + 1)}>Counter+</button>
     </div>
 }
-export const SetTimeoutExampleConcerningUseEffect = () => {
+export const SetIntervalExampleConcerningUseEffect = () => {
     const [counter, setCounter] = useState<number>(() => {
         return 1
     })
@@ -73,3 +73,56 @@ export const ClockExampleConcerningUseEffect = () => {
         {newDate.hours + ":" + newDate.minutes + ":" + newDate.seconds}
     </div>
 }
+export const ResetEffectExampleConcerningUseEffect = () => {
+    const [counter, setCounter] = useState<number>(() => {
+        return 1
+    })
+    console.log("Component was rendered:" + counter)
+    useEffect(() => {
+        console.log("Effect was occurred:" + counter)
+    return () => {console.log("Reset effect:" + counter)}
+    }, [counter])
+
+    const increaseFn = () => {
+        setCounter(counter+1)
+    }
+
+    return <>Hello, counter: {counter}<button onClick={increaseFn}>+</button>
+    </>
+}
+
+export const KeysTrackerExampleConcerningUseEffect = () => {
+    const [text, setText] = useState<string>("")
+    console.log("Component was rendered:" + text)
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText(text + e.key)
+        }
+        window.addEventListener("keypress", handler)
+        return () => {
+            window.removeEventListener("keypress", handler)
+        }
+
+    }, [text])
+
+
+    return <>Typed text: {text}
+    </>
+}
+export const SetTimeoutExampleConcerningUseEffect = () => {
+    const [text, setText] = useState<string>("")
+    console.log("Component was rendered:" + text)
+    useEffect(() => {
+        const timeoutID = setTimeout(() =>{
+            console.log("SetTimeout was expired")
+            setText("3 seconds was passed")
+        }, 3000)
+        return () => {clearTimeout(timeoutID)}
+    }, [text])
+
+
+    return <>Typed text: {text}
+    </>
+}
+
